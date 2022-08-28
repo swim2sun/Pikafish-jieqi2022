@@ -779,8 +779,7 @@ namespace {
 
 moves_loop: // When in check, search starts here
 
-    /*
-    // Step 11. A small Probcut idea, when we are in check (~0 Elo)
+    // Step 11. A small Probcut idea, when we are in check (~3 Elo)
     probCutBeta = beta + 481;
     if (   ss->inCheck
         && !PvNode
@@ -793,7 +792,6 @@ moves_loop: // When in check, search starts here
         && abs(beta) <= VALUE_KNOWN_WIN
        )
         return probCutBeta;
-    */
 
 
     const PieceToHistory* contHist[] = { (ss-1)->continuationHistory, (ss-2)->continuationHistory,
@@ -869,6 +867,7 @@ moves_loop: // When in check, search starts here
               || givesCheck)
           {
               // Futility pruning for captures (~0 Elo)
+              /*
               if (   !pos.empty(to_sq(move))
                   && !givesCheck
                   && !PvNode
@@ -877,6 +876,7 @@ moves_loop: // When in check, search starts here
                   && ss->staticEval + 281 + 179 * lmrDepth + PieceValue[EG][pos.piece_on(to_sq(move))]
                    + captureHistory[movedPiece][to_sq(move)][type_of(pos.piece_on(to_sq(move)))] / 6 < alpha)
                   continue;
+                */
 
               // SEE based pruning (~9 Elo)
               if (!pos.see_ge(move, Value(-203) * depth))
