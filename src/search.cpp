@@ -660,8 +660,7 @@ namespace {
         &&  eval < 26305) // larger than VALUE_KNOWN_WIN, but smaller than TB wins.
         return eval;
 
-    /*
-    // Step 8. Null move search with verification search (~22 Elo)
+    // Step 8. Null move search with verification search (~33 Elo)
     if (   !PvNode
         && (ss-1)->currentMove != MOVE_NULL
         && (ss-1)->statScore < 14695
@@ -710,10 +709,10 @@ namespace {
                 return nullValue;
         }
     }
-    */
 
     probCutBeta = beta + 179 - 46 * improving;
 
+    /*
     // Step 9. ProbCut (~4 Elo)
     // If we have a good enough capture and a reduced search returns a value
     // much above beta, we can (almost) safely prune the previous move.
@@ -763,6 +762,7 @@ namespace {
                 }
             }
     }
+    */
 
     // Step 10. If the position is not in TT, decrease depth by 3.
     // Use qsearch if depth is equal or below zero (~4 Elo)
