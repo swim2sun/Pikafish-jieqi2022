@@ -639,8 +639,7 @@ namespace {
                   :                                    175;
     improving = improvement > 0;
 
-    /*
-    // Step 6. Razoring.
+    // Step 6. Razoring. (~0 elo)
     // If eval is really low check with qsearch if it can exceed alpha, if it can't,
     // return a fail low.
     if (   !PvNode
@@ -651,8 +650,8 @@ namespace {
         if (value < alpha)
             return value;
     }
-    */
 
+    /*
     // Step 7. Futility pruning: child node (~25 Elo).
     // The depth condition is important for mate finding.
     if (   !ss->ttPv
@@ -661,6 +660,7 @@ namespace {
         &&  eval >= beta
         &&  eval < 26305) // larger than VALUE_KNOWN_WIN, but smaller than TB wins.
         return eval;
+    */
 
     // Step 8. Null move search with verification search (~22 Elo)
     if (   !PvNode
