@@ -771,15 +771,15 @@ namespace {
     if (depth <= 0)
         return qsearch<PV>(pos, ss, alpha, beta);
 
-    /*
+    // If cutNode and the position is not in TT, decrease depth by 1. (~3 elo)
     if (    cutNode
         &&  depth >= 8
         && !ttMove)
         depth--;
-    */
 
 moves_loop: // When in check, search starts here
 
+    /*
     // Step 11. A small Probcut idea, when we are in check (~0 Elo)
     probCutBeta = beta + 481;
     if (   ss->inCheck
@@ -793,6 +793,7 @@ moves_loop: // When in check, search starts here
         && abs(beta) <= VALUE_KNOWN_WIN
        )
         return probCutBeta;
+    */
 
 
     const PieceToHistory* contHist[] = { (ss-1)->continuationHistory, (ss-2)->continuationHistory,
