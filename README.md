@@ -9,6 +9,7 @@
   [![Website][website-badge]][website-link]
   [![Fishtest][fishtest-badge]][fishtest-link]
   [![Discord][discord-badge]][discord-link]
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/swim2sun/Pikafish-jieqi2022)
 
 </div>
 
